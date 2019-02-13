@@ -12,3 +12,5 @@
     <label asp-for="Post.Rating"></label>
     <label asp-for="Post.Rating">@Model.Post.Rating</label>
 </div>
+
+<a asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>

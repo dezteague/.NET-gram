@@ -13,14 +13,18 @@
     var posts = await PostManager.GetPosts();
 }
 
-@foreach (var item in posts)
-{
-    //route has post id
-    <a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a>
-    <p>@item.Caption</p>
-    <img src="https://via.placeholder.com/150" />
-    <p>By: @item.Username</p>
+<div class="">
+    @foreach (var item in posts)
+    {
+        //route has post id
+    <ul>
+        <li><a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a></li>
 
-}
+        <li><p>@item.Caption</p></li>
 
-<h3><a asp-page="/Posts/Manage">Add New Post</a></h3>
+        <li><p>By: @item.Username</p></li>
+    </ul>
+        <img src="https://via.placeholder.com/150" />
+    }
+</div>
+<h4><a asp-page="/Posts/Manage">Add New Post</a></h4>

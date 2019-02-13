@@ -4,5 +4,6 @@
 @inject IPost PostService
 
 @{ 
+    //posts is equal to list of posts returned by the service
     var posts = await PostService.GetPosts();
 }

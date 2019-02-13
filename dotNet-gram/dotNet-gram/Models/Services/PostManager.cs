@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace dotNet_gram.Models.Services
 {
+    //service contains the logic for each task in the interface
+
     public class PostManager : IPost
     {
         public Task DeleteAsync(int id)

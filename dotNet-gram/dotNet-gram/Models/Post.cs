@@ -7,6 +7,8 @@ namespace dotNet_gram.Models
 {
     public class Post
     {
+        //properties of each post
+        
         public int ID { get; set; }
         
         public string Title { get; set; }

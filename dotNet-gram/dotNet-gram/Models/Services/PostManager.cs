@@ -1,5 +1,6 @@
 ﻿using dotNet_gram.Data;
 using dotNet_gram.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,9 @@ namespace dotNet_gram.Models.Services
 
         public async Task DeleteAsync(int id)
         {
-            Post post = await _context.Posts.FindAsync(id);
-           
             //check to see if the post exists in the db
+            Post post = await _context.Posts.FindAsync(id);
+            
             if(post !=null)
             {
                 _context.Remove(post);
@@ -37,9 +38,10 @@ namespace dotNet_gram.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Post>> GetPosts()
+        public async Task<List<Post>> GetPosts()
         {
-            throw new NotImplementedException();
+            //return a list of all the posts in the db
+            return await _context.Posts.ToListAsync();
         }
 
         public Task SaveAsync(Post post)

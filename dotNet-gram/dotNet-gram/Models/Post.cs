@@ -15,7 +15,7 @@ namespace dotNet_gram.Models
 
         public string Caption { get; set; }
 
-        public int Rating { get; set }
+        public int Rating { get; set; }
 
         public string URL { get; set; }
     }

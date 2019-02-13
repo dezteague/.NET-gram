@@ -9,8 +9,8 @@ using dotNet_gram.Data;
 namespace dotNet_gram.Migrations
 {
     [DbContext(typeof(PostDbContext))]
-    [Migration("20190213053343_seededData")]
-    partial class seededData
+    [Migration("20190213200654_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,11 +28,11 @@ namespace dotNet_gram.Migrations
 
                     b.Property<string>("Caption");
 
-                    b.Property<int>("Rating");
-
                     b.Property<string>("Title");
 
                     b.Property<string>("URL");
+
+                    b.Property<string>("Username");
 
                     b.HasKey("ID");
 
@@ -43,41 +43,41 @@ namespace dotNet_gram.Migrations
                         {
                             ID = 1,
                             Caption = "This is awesome!",
-                            Rating = 5,
                             Title = "awesome",
-                            URL = "awesome.jpg"
+                            URL = "awesome.jpg",
+                            Username = "Deziree T."
                         },
                         new
                         {
                             ID = 2,
                             Caption = "This is cool!",
-                            Rating = 4,
                             Title = "cool",
-                            URL = "cool.jpg"
+                            URL = "cool.jpg",
+                            Username = "Elisha C."
                         },
                         new
                         {
                             ID = 3,
                             Caption = "This is fun!",
-                            Rating = 3,
                             Title = "fun",
-                            URL = "fun.jpg"
+                            URL = "fun.jpg",
+                            Username = "Quinton R."
                         },
                         new
                         {
                             ID = 4,
                             Caption = "This is amazing!",
-                            Rating = 5,
                             Title = "amazing",
-                            URL = "amazing.jpg"
+                            URL = "amazing.jpg",
+                            Username = "Zan J."
                         },
                         new
                         {
                             ID = 5,
-                            Caption = "This is beautiful!",
-                            Rating = 5,
+                            Caption = "This is beautiful",
                             Title = "beautiful",
-                            URL = "beautiful.jpg"
+                            URL = "beautiful.jpg",
+                            Username = "Lynette E."
                         });
                 });
 #pragma warning restore 612, 618

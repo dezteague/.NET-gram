@@ -40,7 +40,7 @@ namespace dotNet_gram.Pages.Posts
             //set data from the db to the new data from Post/user input
             pst.Title = Post.Title;
             pst.Caption = Post.Caption;
-            pst.Rating = Post.Rating;
+           
 
             //save the post to the db
             await _post.SaveAsync(pst);

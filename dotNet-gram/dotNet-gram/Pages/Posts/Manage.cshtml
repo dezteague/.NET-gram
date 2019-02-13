@@ -1,0 +1,21 @@
+﻿@page "{id?}"
+@model dotNet_gram.Pages.Posts.ManageModel
+@{
+    ViewData["Title"] = "Manage";
+}
+
+<h1>Manage</h1>
+
+<form method="post">
+    <label asp-for="Post.Title"></label>
+    <input asp-for="Post.Title" />
+
+    <label asp-for="Post.Rating"></label>
+    <input asp-for="Post.Rating" />
+
+    <label asp-for="Post.Caption"></label>
+    <textarea rows="5" asp-for="Post.Caption"></textarea>
+
+    <button type="submit">save</button>
+    <button type="submit" asp-page-handler="Delete">delete</button>
+</form>

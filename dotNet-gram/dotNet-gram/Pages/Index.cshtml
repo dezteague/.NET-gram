@@ -1,3 +1,8 @@
 ﻿@page 
+@using dotNet_gram.Models.Interfaces
 
-pages directory, index.cshtml page
+@inject IPost PostService
+
+@{ 
+    var posts = await PostService.GetPosts();
+}

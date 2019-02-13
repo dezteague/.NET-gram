@@ -50,7 +50,7 @@ namespace dotNet_gram.Models.Services
         public async Task SaveAsync(Post post)
         {
             //look for the post in the db
-            if(await _context.Posts.FirstOrDefaultAsync(p => p.ID == p.ID) == null)
+            if(await _context.Posts.FirstOrDefaultAsync(p => p.ID == post.ID) == null)
             {
                 //if it doesn't exist, add it
                 _context.Posts.Add(post);

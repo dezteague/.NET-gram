@@ -47,9 +47,21 @@ namespace dotNet_gram.Models.Services
             return await _context.Posts.ToListAsync();
         }
 
-        public Task SaveAsync(Post post)
+        public async Task SaveAsync(Post post)
         {
-            throw new NotImplementedException();
+            //look for the post in the db
+            if(await _context.Posts.FirstOrDefaultAsync(p => p.ID == p.ID) == null)
+            {
+                //if it doesn't exist, add it
+                _context.Posts.Add(post);
+            }
+            else
+            {
+                //update the db with a new post
+                _context.Posts.Update(post);
+            }
+            //save changes to the db
+            await _context.SaveChangesAsync();
         }
     }
 }

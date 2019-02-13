@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model dotNet_gram.Pages.Posts.ManageModel
 @{
     ViewData["Title"] = "Manage";
@@ -6,3 +6,11 @@
 
 <h1>Manage</h1>
 
+<label asp-for="Post.Title"></label>
+<input asp-for="Post.Title" />
+
+<label asp-for="Post.Rating"></label>
+<input asp-for="Post.Rating" />
+
+<label asp-for="Post.Caption"></label>
+<textarea rows="5" asp-for="Post.Caption"></textarea>

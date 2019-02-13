@@ -15,7 +15,9 @@ namespace dotNet_gram.Pages.Posts
 
         [FromRoute]
         public int ID { get; set; }
-
+        
+        //bind property allows user to keep information input in the form 
+        [BindProperty]
         public Post Post { get; set; }
 
         public ManageModel(IPost post)
@@ -26,6 +28,13 @@ namespace dotNet_gram.Pages.Posts
         public async Task OnGet()
         {
             Post = await _post.FindPost(ID);
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            await _post.SaveAsync(Post);
+
+            return RedirectToPage("/Posts/Index", ID);
         }
     }
 }

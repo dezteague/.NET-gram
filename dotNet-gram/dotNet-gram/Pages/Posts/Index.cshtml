@@ -13,4 +13,9 @@
     <label asp-for="Post.Caption">@Model.Post.Caption</label>
 </div>
 
+<div>
+    <label asp-for="Post.Username">By:</label>
+    <label asp-for="Post.Username">@Model.Post.Username</label>
+</div>
+
 <a asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>

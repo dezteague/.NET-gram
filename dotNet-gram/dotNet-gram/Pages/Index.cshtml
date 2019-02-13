@@ -5,6 +5,10 @@
 @inject IPost PostManager
 
 @{
+    Layout = "_Layout";
+}
+
+@{
     //posts is equal to list of posts returned by the service
     var posts = await PostManager.GetPosts();
 }

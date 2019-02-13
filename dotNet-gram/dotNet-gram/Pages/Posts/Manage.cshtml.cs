@@ -40,12 +40,13 @@ namespace dotNet_gram.Pages.Posts
             //set data from the db to the new data from Post/user input
             pst.Title = Post.Title;
             pst.Caption = Post.Caption;
+            pst.Username = Post.Username;
            
 
             //save the post to the db
             await _post.SaveAsync(pst);
 
-            return RedirectToPage("/Posts/Index", new { id = pst.ID });
+            return RedirectToPage("/Index");
         }
 
         public async Task<IActionResult> OnPostDelete()

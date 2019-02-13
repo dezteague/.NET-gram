@@ -12,7 +12,10 @@
 
 
     <label asp-for="Post.Caption"></label>
-    <textarea rows="5" asp-for="Post.Caption"></textarea>
+    <textarea rows="5" cols="30" asp-for="Post.Caption"></textarea>
+
+    <label asp-for="Post.Username">By:</label>
+    <input asp-for="Post.Username" />
 
     <button type="submit">save</button>
     <button type="submit" asp-page-handler="Delete">delete</button>

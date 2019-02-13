@@ -33,9 +33,12 @@ namespace dotNet_gram.Models.Services
             }
         }
 
-        public Task<Post> FindPost(int id)
+        public async Task<Post> FindPost(int id)
         {
-            throw new NotImplementedException();
+            //find a post by its id
+            Post post = await _context.Posts.FirstOrDefaultAsync(p => p.ID == id);
+
+            return post;
         }
 
         public async Task<List<Post>> GetPosts()

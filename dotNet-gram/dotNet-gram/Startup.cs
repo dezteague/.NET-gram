@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using dotNet_gram.Data;
+using dotNet_gram.Models.Interfaces;
+using dotNet_gram.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,6 +32,10 @@ namespace dotNet_gram
             //bring in the database
             services.AddDbContext<PostDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //register depenedency injection, IPOST instantiates an instance of the class
+            //post manager calls getposts method
+            services.AddScoped<IPost, PostManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

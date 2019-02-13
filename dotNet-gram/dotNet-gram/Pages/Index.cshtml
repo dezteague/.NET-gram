@@ -1,9 +1,16 @@
 ﻿@page 
 @using dotNet_gram.Models.Interfaces
 
-@inject IPost PostService
+@inject IPost PostManager
 
 @{ 
     //posts is equal to list of posts returned by the service
-    var posts = await PostService.GetPosts();
+    var posts = await PostManager.GetPosts();
+}
+
+@foreach (var item in posts)
+{
+    <h3>@item.Title</h3>
+    <p>@item.Rating</p>
+    
 }

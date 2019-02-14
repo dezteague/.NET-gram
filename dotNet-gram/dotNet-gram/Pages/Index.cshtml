@@ -13,10 +13,10 @@
     var posts = await PostManager.GetPosts();
 }
 
-<div>
+<div class="row">
     @foreach (var item in posts)
     {
-        <div class="postcontainer">
+        <div class="col">
             @*route has post id*@
             <ul>
                 <li><a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a></li>

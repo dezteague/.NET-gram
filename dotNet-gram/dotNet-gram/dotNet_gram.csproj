@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>dotNet_gram</RootNamespace>
+    <UserSecretsId>e37e5d98-58f7-4697-b166-d0de003e301e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

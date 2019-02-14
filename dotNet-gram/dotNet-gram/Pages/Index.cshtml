@@ -16,7 +16,7 @@
 <div class="row">
     @foreach (var item in posts)
     {
-        <div class="col background-color: red">
+        <div class="col">
             @*route has post id*@
             <ul>
                 <li><a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a></li>

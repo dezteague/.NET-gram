@@ -19,5 +19,5 @@
     <label asp-for="Post.Username">By:</label>
     <label asp-for="Post.Username">@Model.Post.Username</label>
 </div>
-
-<a asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
+<br />
+<a class="btn btn-info" role="button"asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>

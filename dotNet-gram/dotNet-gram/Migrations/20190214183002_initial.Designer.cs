@@ -9,7 +9,7 @@ using dotNet_gram.Data;
 namespace dotNet_gram.Migrations
 {
     [DbContext(typeof(PostDbContext))]
-    [Migration("20190213200654_initial")]
+    [Migration("20190214183002_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

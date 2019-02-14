@@ -6,8 +6,8 @@
 }
 
 
-<h1>Manage</h1>
-
+<h1>Edit Post</h1>
+<br />
 <form method="post">
     <label asp-for="Post.Title"></label>
     <input asp-for="Post.Title" />
@@ -19,6 +19,6 @@
     <label asp-for="Post.Username">By:</label>
     <input asp-for="Post.Username" />
 
-    <button type="submit">save</button>
-    <button type="submit" asp-page-handler="Delete">delete</button>
+    <button type="submit" class="btn btn-primary">save</button>
+    <button type="submit" class="btn btn-danger" asp-page-handler="Delete">delete</button>
 </form>

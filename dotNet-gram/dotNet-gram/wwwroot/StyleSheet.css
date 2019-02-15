@@ -1,9 +1,15 @@
-﻿body {
+﻿h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 12vh;
+    color: whitesmoke;
+    -webkit-text-stroke: 3px black;
+}
+body {
     text-align: center;
     background-size: cover;
     background-color: azure;
-    /*background-image: url(https://images.unsplash.com/photo-1505739998589-00fc191ce01d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);*/
-    background-repeat: no-repeat;
+    background-image: url(https://images.unsplash.com/photo-1520117833983-e7b006f7c266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);
+    *background-repeat: no-repeat;
 }
 
 .post-container {
@@ -20,11 +26,13 @@
 .post-item {
     text-align:center;
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255);
     border: 3px solid rgba(0, 0, 0, 0.8);
-    float: left;
+    /*float: left;*/
     margin: 1em;
     padding: 1em;
+    
+    
     
     /*border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -32,5 +40,10 @@
     padding: 10%;
     font-size: 3vh;
     text-align: center;*/
+}
+
+img {
+    height: 30vh;
+    width: 20vw;
 }
 

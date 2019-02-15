@@ -8,12 +8,12 @@
 <div class="post-container">
     <div class="post-item">
         <div>
-    <label asp-for="Post.Title">Title:</label>
+    <label asp-for="Post.Title"><strong>Title:</strong></label>
     <label asp-for="Post.Title">@Model.Post.Title</label>
 </div>
 
 <div>
-    <label asp-for="Post.Caption">Caption:</label>
+    <label asp-for="Post.Caption"><strong>Caption:</strong></label>
     <label asp-for="Post.Caption">@Model.Post.Caption</label>
 </div>
 
@@ -27,5 +27,5 @@
 </div>
 </div>
 <br />
-<a class="btn btn-info" role="button"asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
+<a class="btn btn-primary" role="button"asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
 </div>

@@ -16,12 +16,14 @@
     @foreach (var item in posts)
     {
         <div class="post-item">
-            <a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a>
-            <p>@item.Caption</p>
+            <p><strong>@item.Title</strong></p>
+            <p><em>"@item.Caption"</em></p>
             <p>By: @item.Username</p>
             @*<img src="https://via.placeholder.com/150">*@
             <a asp-page="/Posts/Index" asp-route-id="@item.ID"><img src="@item.URL" /></a>
 </div>
     }
 </div>
+
         <h4><a asp-page="/Posts/Manage">Add New Post</a></h4>
+<br />

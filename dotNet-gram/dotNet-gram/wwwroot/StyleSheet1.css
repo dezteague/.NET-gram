@@ -1,0 +1,65 @@
+﻿h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 10vh;
+    /*color: whitesmoke;*/
+    -webkit-text-stroke: 3px black;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header {
+    background-color: rgba(255, 255, 255);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+h4 {
+    color: ghostwhite;
+    background-color: rgba(255, 255, 255);
+    border-radius: 5px;
+    padding: .5em;
+    text-decoration: none;
+    width: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+/*h4:focus,
+h4:hover {
+    background-color: FireBrick;
+    color: White;
+}*/
+
+body {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-align: center;
+    background-size: cover;
+    background-color: azure;
+    background-image: url(https://images.unsplash.com/photo-1520117833983-e7b006f7c266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);
+    *background-repeat: no-repeat;
+}
+
+.post-container {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+.post-item {
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    margin: 1em;
+    padding: 1em;
+}
+
+img {
+    border-radius: 20px;
+    height: 30vh;
+    width: 20vw;
+}

@@ -8,33 +8,36 @@
 
 <h4>Edit Post</h4>
 <br />
+        <div class="post-container">
+            <div class="post-item">
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <label asp-for="Image"></label>
+                        <input asp-for="Image" type="file" />
+                    </div>
+                    <p>Title</p>
+                    <div class="form-group">
+                        @*<label asp-for="Post.Title"></label>*@
+                        <input asp-for="Post.Title" />
+                    </div>
+                    <p>Caption</p>
+                    <div>
+                        @*<label asp-for="Post.Caption"></label>*@
+                        <textarea rows="5" cols="25" asp-for="Post.Caption"></textarea>
+                    </div>
 
-        <div class="col-md-12">
-            <form method="post" enctype="multipart/form-data">
-                <p>Title</p>
-                <div class="form-group">
-                    @*<label asp-for="Post.Title"></label>*@
-                    <input asp-for="Post.Title" />
-                </div>
-                <p>Caption</p>
-                <div class="form-group">
-                    @*<label asp-for="Post.Caption"></label>*@
-                    <textarea rows="5" cols="25" asp-for="Post.Caption"></textarea>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Image"></label>
-                    <input asp-for="Image" type="file"/>
-                </div>
-                <p>By:</p>
-                <div class="form-group">
-                    @*<label asp-for="Post.Username">By:</label>*@
-                    <input asp-for="Post.Username" />
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">save</button>
-                    <button type="submit" class="btn btn-danger" asp-page-handler="Delete">delete</button>
-                </div>
-            </form>
+                    <p>By:</p>
+                    <div>
+                        @*<label asp-for="Post.Username">By:</label>*@
+                        <input asp-for="Post.Username" />
+                    </div>
+                    <br />
+                    <div>
+                        <button type="submit" class="btn btn-primary">save</button>
+                        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">delete</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
 

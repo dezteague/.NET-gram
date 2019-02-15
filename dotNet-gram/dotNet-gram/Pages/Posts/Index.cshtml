@@ -5,8 +5,9 @@
     Layout = "_Layout";
 }
 
-
-<div>
+<div class="post-container">
+    <div class="post-item">
+        <div>
     <label asp-for="Post.Title">Title:</label>
     <label asp-for="Post.Title">@Model.Post.Title</label>
 </div>
@@ -17,13 +18,14 @@
 </div>
 
 <div>
-    
     <img src="@Model.Post.URL"/>
 </div>
-
+<br />
 <div>
     <label asp-for="Post.Username">By:</label>
     <label asp-for="Post.Username">@Model.Post.Username</label>
 </div>
+</div>
 <br />
 <a class="btn btn-info" role="button"asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
+</div>

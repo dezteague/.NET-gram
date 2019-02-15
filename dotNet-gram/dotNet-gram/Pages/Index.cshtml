@@ -12,24 +12,16 @@
     //posts is equal to list of posts returned by the service
     var posts = await PostManager.GetPosts();
 }
-<div class="container col-md-10">
-<div class="row">
+<div class="post-container">
     @foreach (var item in posts)
     {
-        <div class="col">
-            @*route has post id*@
-            <ul>
-                <li><a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a></li>
-                <li><p>@item.Caption</p></li>
-                <li><p>By: @item.Username</p></li>
-                @*<li><img src="https://via.placeholder.com/200" /></li>*@
-                <li><img src="@item.URL" /></li>
-            </ul> 
-            <br />
+        <div class="post-item">
+            <a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a>
+            <p>@item.Caption</p>
+            <p>By: @item.Username</p>
+            <img src="https://via.placeholder.com/150">
+            @*<img src="@item.URL" />*@
         </div>
-        <br />
-     }
+    }
 </div>
-    </div>
-<br />
         <h4><a asp-page="/Posts/Manage">Add New Post</a></h4>

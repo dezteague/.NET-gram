@@ -6,16 +6,31 @@
     background-repeat: no-repeat;
 }
 
-
-/*.col{
-    border: 1px solid black;
-    background-color: white;
-    width: 20%;
-    margin-left: auto;
-    margin-right: 5%;
-}*/
-
-ul {
-    list-style-type: none;
-    /*padding-right: 2em;*/
+.post-container {
+    display: table;
+    margin-left:auto;
+    margin-right: auto;
+    /*display: grid;
+    grid-column-gap: 5vw;
+    grid-row-gap: 5vw;
+    grid-template-columns: auto auto auto auto;
+    padding: 10%;*/
 }
+
+.post-item {
+    text-align:center;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    float: left;
+    margin: 1em;
+    padding: 1em;
+    
+    /*border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    padding: 10%;
+    font-size: 3vh;
+    text-align: center;*/
+}
+

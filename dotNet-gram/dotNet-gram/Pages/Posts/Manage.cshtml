@@ -10,7 +10,7 @@
 <br />
 
         <div class="col-md-12">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <p>Title</p>
                 <div class="form-group">
                     @*<label asp-for="Post.Title"></label>*@
@@ -20,6 +20,10 @@
                 <div class="form-group">
                     @*<label asp-for="Post.Caption"></label>*@
                     <textarea rows="5" cols="25" asp-for="Post.Caption"></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image"></label>
+                    <input asp-for="Image" type="file"/>
                 </div>
                 <p>By:</p>
                 <div class="form-group">

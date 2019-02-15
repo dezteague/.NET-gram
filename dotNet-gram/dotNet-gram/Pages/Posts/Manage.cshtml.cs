@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using dotNet_gram.Models;
 using dotNet_gram.Models.Interfaces;
+using dotNet_gram.Models.Util;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace dotNet_gram.Pages.Posts
 {
@@ -20,11 +25,17 @@ namespace dotNet_gram.Pages.Posts
         [BindProperty]
         public Post Post { get; set; }
 
-        public 
+        [BindProperty]
+        public IFormFile Image { get; set; }
 
-        public ManageModel(IPost post)
+        public Blob BlobImage { get; set; }
+
+        public ManageModel(IPost post, IConfiguration configuration)
         {
             _post = post;
+
+            //blob storage account reference
+            BlobImage = new Blob(configuration);
         }
 
         public async Task OnGet()
@@ -44,6 +55,28 @@ namespace dotNet_gram.Pages.Posts
             pst.Caption = Post.Caption;
             pst.Username = Post.Username;
            
+            if(Image != null)
+            {
+                //Azure blob
+                var filePath = Path.GetTempFileName();
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await Image.CopyToAsync(stream);
+                }
+
+                //get container
+                var container = await BlobImage.GetContainer("postimages");
+
+                //upload image
+                BlobImage.UploadFile(container, Image.FileName, filePath);
+
+                //get uploaded image
+                CloudBlob blob = await BlobImage.GetBlob(Image.FileName, container.Name);
+
+                //update the db image for the post
+                pst.URL = blob.Uri.ToString();
+            }
 
             //save the post to the db
             await _post.SaveAsync(pst);

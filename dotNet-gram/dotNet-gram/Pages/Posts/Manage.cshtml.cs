@@ -20,6 +20,8 @@ namespace dotNet_gram.Pages.Posts
         [BindProperty]
         public Post Post { get; set; }
 
+        public 
+
         public ManageModel(IPost post)
         {
             _post = post;

@@ -33,10 +33,10 @@ namespace dotNet_gram
             services.AddMvc();
 
             //bring in the database
-            //services.AddDbContext<PostDbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<PostDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<PostDbContext>(options =>
+            //options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
 
    
             //register depenedency injection, IPOST instantiates an instance of the class

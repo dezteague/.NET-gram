@@ -22,7 +22,8 @@
                 <li><a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a></li>
                 <li><p>@item.Caption</p></li>
                 <li><p>By: @item.Username</p></li>
-                <li><img src="https://via.placeholder.com/200" /></li>
+                @*<li><img src="https://via.placeholder.com/200" /></li>*@
+                <li><img src="@item.URL" /></li>
             </ul> 
             <br />
         </div>

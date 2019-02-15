@@ -5,6 +5,7 @@
     Layout = "_Layout";
 }
 
+
 <div>
     <label asp-for="Post.Title">Title:</label>
     <label asp-for="Post.Title">@Model.Post.Title</label>
@@ -13,6 +14,11 @@
 <div>
     <label asp-for="Post.Caption">Caption:</label>
     <label asp-for="Post.Caption">@Model.Post.Caption</label>
+</div>
+
+<div>
+    
+    <img src="@Model.Post.URL"/>
 </div>
 
 <div>

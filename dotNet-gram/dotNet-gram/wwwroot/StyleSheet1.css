@@ -28,10 +28,11 @@ h4 {
 
 .icon {
     float: right;
-    position: fixed;
+    position:sticky;
     top: 1px;
     right: 0px;
 }
+
 .material-icons {
     vertical-align: -14%
 }

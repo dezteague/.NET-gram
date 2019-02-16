@@ -26,6 +26,16 @@ h4 {
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
+.icon {
+    float: right;
+    position: fixed;
+    top: 1px;
+    right: 0px;
+}
+.material-icons {
+    vertical-align: -14%
+}
+
 /*h4:focus,
 h4:hover {
     background-color: FireBrick;

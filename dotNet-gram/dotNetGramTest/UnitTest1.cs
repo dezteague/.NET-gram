@@ -79,6 +79,7 @@ namespace dotNetGramTest
                 post.Caption = "in the sun";
                 post.URL = "www.funinthesun.com";
 
+
                 post.Title = "Freezing";
                 post.Caption = "in the snow";
 
@@ -90,6 +91,34 @@ namespace dotNetGramTest
                 var result = context.Posts.FirstOrDefault(p => p.ID == p.ID);
                 //assert
                 Assert.Equal(post, result);
+            }
+        }
+
+        [Fact]
+        public async void CanFindPostTest()
+        {
+            //testing post manger service
+            DbContextOptions<PostDbContext> options =
+                new DbContextOptionsBuilder<PostDbContext>().UseInMemoryDatabase("CreatePost").Options;
+
+            using (PostDbContext context = new PostDbContext(options))
+            {
+                //arrange
+                Post post = new Post();
+                post.ID = 1;
+                post.Title = "Fun";
+                post.Caption = "in the sun";
+                post.URL = "www.funinthesun.com";
+                //act 
+                PostManager postservice = new PostManager(context);
+
+                await postservice.SaveAsync(post);
+
+                Post check = context.Posts.FirstOrDefault(p => p.ID == p.ID);
+                Post validate = await postservice.FindPost(1);
+                
+                //assert
+                Assert.Equal(check, validate);
             }
         }
     }

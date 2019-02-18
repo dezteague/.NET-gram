@@ -30,6 +30,11 @@ namespace dotNet_gram.Pages.Posts
 
         public Blob BlobImage { get; set; }
 
+        /// <summary>
+        /// Manage posts
+        /// </summary>
+        /// <param name="post">post</param>
+        /// <param name="configuration">configuration</param>
         public ManageModel(IPost post, IConfiguration configuration)
         {
             _post = post;
@@ -38,12 +43,20 @@ namespace dotNet_gram.Pages.Posts
             BlobImage = new Blob(configuration);
         }
 
+        /// <summary>
+        /// Gets a post
+        /// </summary>
+        /// <returns>post</returns>
         public async Task OnGet()
         {
             //if there's no post, create a new one
             Post = await _post.FindPost(ID.GetValueOrDefault()) ?? new Post();
         }
 
+        /// <summary>
+        /// Posts a post
+        /// </summary>
+        /// <returns>post</returns>
         public async Task<IActionResult> OnPost()
         {
             //call to db with the ID
@@ -84,6 +97,10 @@ namespace dotNet_gram.Pages.Posts
             return RedirectToPage("/Index");
         }
 
+        /// <summary>
+        /// Delete a post
+        /// </summary>
+        /// <returns>home page</returns>
         public async Task<IActionResult> OnPostDelete()
         {
             await _post.DeleteAsync(ID.Value);

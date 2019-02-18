@@ -27,10 +27,10 @@ h4 {
 }
 
 .icon {
-    float: right;
-    position:sticky;
-    top: 1px;
+    top: 0px;
     right: 0px;
+    float: right;
+    position: fixed;
 }
 
 .material-icons {

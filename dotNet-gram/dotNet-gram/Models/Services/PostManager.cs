@@ -20,6 +20,11 @@ namespace dotNet_gram.Models.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Delete a post
+        /// </summary>
+        /// <param name="id">post id</param>
+        /// <returns>home page</returns>
         public async Task DeleteAsync(int id)
         {
             //check to see if the post exists in the db
@@ -33,6 +38,11 @@ namespace dotNet_gram.Models.Services
             }
         }
 
+        /// <summary>
+        /// find a post
+        /// </summary>
+        /// <param name="id">post id</param>
+        /// <returns>post</returns>
         public async Task<Post> FindPost(int id)
         {
             //find a post by its id
@@ -41,12 +51,21 @@ namespace dotNet_gram.Models.Services
             return post;
         }
 
+        /// <summary>
+        /// get all posts
+        /// </summary>
+        /// <returns>all posts</returns>
         public async Task<List<Post>> GetPosts()
         {
             //return a list of all the posts in the db
             return await _context.Posts.ToListAsync();
         }
 
+        /// <summary>
+        /// save a new post or changes to an exisiting post
+        /// </summary>
+        /// <param name="post">post id</param>
+        /// <returns>new post or updated post</returns>
         public async Task SaveAsync(Post post)
         {
             //look for the post in the db

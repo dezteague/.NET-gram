@@ -20,6 +20,11 @@ namespace dotNet_gram.Models.Util
         }
 
         //get container
+        /// <summary>
+        /// Gets container
+        /// </summary>
+        /// <param name="containerName">name of container</param>
+        /// <returns>cloud blob client</returns>
         public async Task<CloudBlobContainer> GetContainer(string containerName)
         {
             CloudBlobContainer cbc = CloudBlobClient.GetContainerReference(containerName);
@@ -30,6 +35,12 @@ namespace dotNet_gram.Models.Util
         }
 
         //get a blob
+        /// <summary>
+        /// Get a blob
+        /// </summary>
+        /// <param name="imageName">name of image</param>
+        /// <param name="containerName">name of container</param>
+        /// <returns>blob</returns>
         public async Task<CloudBlob> GetBlob(string imageName, string containerName)
         {
             //var container = CloudBlobClient.GetContainerReference(containerName);
@@ -41,6 +52,12 @@ namespace dotNet_gram.Models.Util
         }
 
         //to upload a file, bring in container, name and path
+        /// <summary>
+        /// Upload a file
+        /// </summary>
+        /// <param name="cloudBlobContainer">name of container</param>
+        /// <param name="fileName">name of file</param>
+        /// <param name="filePath">path file</param>
         public void UploadFile(CloudBlobContainer cloudBlobContainer, string fileName, string filePath)
         {
             var blobFile = cloudBlobContainer.GetBlockBlobReference(fileName);

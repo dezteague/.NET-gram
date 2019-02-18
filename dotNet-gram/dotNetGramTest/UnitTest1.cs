@@ -5,6 +5,7 @@ using dotNet_gram.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
+
 namespace dotNetGramTest
 {
     public class UnitTest1
@@ -14,7 +15,7 @@ namespace dotNetGramTest
         {
             //testing post manger service
             DbContextOptions<PostDbContext> options =
-                new DbContextOptionsBuilder<PostDbContext>().UseInMemoryDatabase("CreatePost").Options;
+                new DbContextOptionsBuilder<PostDbContext>().UseInMemoryDatabase("Create").Options;
 
             using (PostDbContext context = new PostDbContext(options))
             {
@@ -29,9 +30,10 @@ namespace dotNetGramTest
 
                 await postservice.SaveAsync(post);
 
-                var result = context.Posts.FirstOrDefault(p => p.ID == p.ID);
+                var result = context.Posts.FirstOrDefault(p => p.ID == post.ID);
+                
                 //assert
-                Assert.Equal(post, result);
+                Assert.Equal(post,result);
             }
         }
 
@@ -40,7 +42,7 @@ namespace dotNetGramTest
         {
             //testing post manger service
             DbContextOptions<PostDbContext> options =
-                new DbContextOptionsBuilder<PostDbContext>().UseInMemoryDatabase("CreatePost").Options;
+                new DbContextOptionsBuilder<PostDbContext>().UseInMemoryDatabase("Create").Options;
 
             using (PostDbContext context = new PostDbContext(options))
             {
@@ -58,8 +60,9 @@ namespace dotNetGramTest
                 await postservice.DeleteAsync(1);
 
                 var result = context.Posts.FirstOrDefault(p => p.ID == 1);
+               
                 //assert
-                Assert.Null(post);
+                Assert.Null(result);
             }
         }
 

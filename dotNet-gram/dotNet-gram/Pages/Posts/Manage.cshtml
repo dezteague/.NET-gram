@@ -2,20 +2,39 @@
 @model dotNet_gram.Pages.Posts.ManageModel
 @{
     ViewData["Title"] = "Manage";
+    Layout = "_Layout"; 
 }
 
-<h1>Manage</h1>
+        <div class="post-container">
+            <div class="post-item">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="image-upload">
+                        <label asp-for="Image"></label>
+                        <input asp-for="Image" type="file" />
+                    </div>
+                    <p><strong>Title</strong></p>
+                    <div >
+                        @*<label asp-for="Post.Title"></label>*@
+                        <input asp-for="Post.Title" />
+                    </div>
+                    <p><strong>Caption</strong></p>
+                    <div>
+                        @*<label asp-for="Post.Caption"></label>*@
+                        <textarea rows="5" cols="25" asp-for="Post.Caption"></textarea>
+                    </div>
 
-<form method="post">
-    <label asp-for="Post.Title"></label>
-    <input asp-for="Post.Title" />
+                    <p><strong>By</strong></p>
+                    <div>
+                        @*<label asp-for="Post.Username">By:</label>*@
+                        <input asp-for="Post.Username" />
+                    </div>
+                    <br />
+                    <div>
+                        <button type="submit" class="btn btn-primary">save</button>
+                        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <label asp-for="Post.Rating"></label>
-    <input asp-for="Post.Rating" />
 
-    <label asp-for="Post.Caption"></label>
-    <textarea rows="5" asp-for="Post.Caption"></textarea>
-
-    <button type="submit">save</button>
-    <button type="submit" asp-page-handler="Delete">delete</button>
-</form>

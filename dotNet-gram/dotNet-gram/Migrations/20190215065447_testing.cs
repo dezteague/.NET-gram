@@ -2,7 +2,7 @@
 
 namespace dotNet_gram.Migrations
 {
-    public partial class newName : Migration
+    public partial class testing : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

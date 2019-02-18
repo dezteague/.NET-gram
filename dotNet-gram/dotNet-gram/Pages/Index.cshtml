@@ -1,20 +1,29 @@
-﻿@page 
+﻿@page
+
 @using dotNet_gram.Models.Interfaces
 
 @inject IPost PostManager
 
-@{ 
+@{
+    Layout = "_Layout";
+}
+
+@{
     //posts is equal to list of posts returned by the service
     var posts = await PostManager.GetPosts();
 }
+<div class="post-container">
+    @foreach (var item in posts)
+    {
+        <div class="post-item">
+            <p><strong>@item.Title</strong></p>
+            <p><em>"@item.Caption"</em></p>
+            <p>By: @item.Username</p>
+            @*<img src="https://via.placeholder.com/150">*@
+            <a asp-page="/Posts/Index" asp-route-id="@item.ID"><img src="@item.URL" /></a>
+</div>
+    }
+</div>
 
-@foreach (var item in posts)
-{
-    <h3>@item.Title</h3>
-    <p>@item.Rating</p>
-    
-    //route has post id 
-    <a asp-page="/Posts/Index" asp-route-id="@item.ID">@item.Title</a>
-}
-
-  <h3><a asp-page="/Posts/Manage">Add New Post</a></h3>
+        <h4><a asp-page="/Posts/Manage">Add New Post</a></h4>
+<br />

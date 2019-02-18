@@ -20,6 +20,9 @@ namespace dotNet_gram
 
         public Startup(IConfiguration configuration)
         {
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
             Configuration = configuration;
         }
 
@@ -30,8 +33,11 @@ namespace dotNet_gram
             services.AddMvc();
 
             //bring in the database
+            //services.AddDbContext<PostDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<PostDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+
 
             //register depenedency injection, IPOST instantiates an instance of the class
             //post manager calls getposts method
@@ -46,8 +52,9 @@ namespace dotNet_gram
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
             app.UseStaticFiles();
+            app.UseMvc();
+           
 
             app.Run(async (context) =>
             {

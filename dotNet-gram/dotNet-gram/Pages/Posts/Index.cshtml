@@ -1,16 +1,31 @@
 ﻿@page "{id?}"
 @model dotNet_gram.Pages.Posts.IndexModel
+
 @{
+    Layout = "_Layout";
 }
 
-<div>
-    <label asp-for="Post.Title"></label>
+<div class="post-container">
+    <div class="post-item">
+        <div>
+    <label asp-for="Post.Title"><strong>Title:</strong></label>
     <label asp-for="Post.Title">@Model.Post.Title</label>
 </div>
 
 <div>
-    <label asp-for="Post.Rating"></label>
-    <label asp-for="Post.Rating">@Model.Post.Rating</label>
+    <label asp-for="Post.Caption"><strong>Caption:</strong></label>
+    <label asp-for="Post.Caption">@Model.Post.Caption</label>
 </div>
 
-<a asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
+<div>
+    <img src="@Model.Post.URL"/>
+</div>
+<br />
+<div>
+    <label asp-for="Post.Username">By:</label>
+    <label asp-for="Post.Username">@Model.Post.Username</label>
+</div>
+</div>
+<br />
+<a class="btn btn-primary" role="button"asp-page="/Posts/Manage" asp-route-id="@Model.Post.ID">Edit</a>
+</div>
